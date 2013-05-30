@@ -86,6 +86,12 @@ $sql_ary['session_topic_id'] = $this->page['topic'];
 /* nanothree - end users viewing topic mod */]]></action>
 			</edit>
 		</open>
+		<open src="includes/functions_display.php">
+			<edit>
+				<find><![CDATA[$last_post_url = append_sid(]]></find>
+				<action type="replace-with"><![CDATA[$last_post_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $row['topic_id'] . '&amp;p=' . $row['forum_last_post_id']) . '#p' . $row['forum_last_post_id'];]]></action>
+			</edit>
+		</open>
 		<open src="language/en/common.php">
 			<edit>
 				<find><![CDATA['BROWSING_FORUM_GUESTS'	=> 'Users browsing this forum: %1$s and %2$d guests',]]></find>
